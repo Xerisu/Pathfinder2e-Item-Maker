@@ -5,7 +5,9 @@
 	import Preview from '../components/Preview.svelte';
 	import Price from "../components/Price.svelte";
 	import Group from "../components/Group.svelte";
+	import Hands from "../components/Hands.svelte";
 	import type { TransformOptions } from "vite";
+	import Type from "../components/Type.svelte";
 	
 	let weaponProficiency: string;
 	let properties = new Properties();
@@ -18,6 +20,11 @@
 		<Price bind:price={properties.priceCp}/>
 		<WeaponCategory bind:selected={properties.category} />
 		<Group bind:selected={properties.group}/>
+		<Hands bind:selected={properties.hands}/>
+		<Type bind:selected={properties.type}/>
+		{#if properties.type == "ranged"}
+			UwU
+		{/if}
 	</div>
 
     <div />

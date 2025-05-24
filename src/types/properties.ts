@@ -4,8 +4,8 @@ export default class Properties {
 	damageType: 'S' | 'P' | 'B';
 	bulk: 'Negligible' | 'L' | number;
 	hands: 'unarmed' | '0' | '1' | '1+' | '2';
-	range: undefined | number;
-	reload: undefined | 0 | 1 | 2 | 3;
+	range:  number;
+	reload:  0 | 1 | 2 | 3;
 	type: 'melee' | 'ranged';
 	category: 'simple' | 'martial' | 'advanced';
 	group: string;
@@ -17,6 +17,8 @@ export default class Properties {
 		this.damageType = 'B';
 		this.bulk = 'Negligible';
 		this.hands = '0';
+		this.range = 30;
+		this.reload = 0;
 		this.type = 'melee';
 		this.category = 'simple';
 		this.group = 'brawling';

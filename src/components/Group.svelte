@@ -22,6 +22,10 @@
 			label: 'Club',
 			description: 'You knock the target away from you up to 10 feet (you choose the distance). This is forced movement.'
 		},
+		crossbow: {
+			label: 'Crossbow',
+			description: 'The target takes 1d8 persistent bleed damage. You gain an item bonus to this bleed damage equal to the weapon\'s item bonus to attack rolls.'
+		},
         dart: {
 			label: 'Dart',
 			description: 'The target takes 1d6 persistent bleed damage. You gain an item bonus to this bleed damage equal to the weapon\'s item bonus to attack rolls.'
@@ -32,11 +36,11 @@
 		},
         flail: {
 			label: 'Flail',
-			description: 'The target is knocked prone.'
+			description: 'The target is knocked prone unless they succeed at a Reflex save against your class DC.'
 		},
         hammer: {
 			label: 'Hammer',
-			description: 'The target is knocked prone.'
+			description: 'The target is knocked prone unless they succeed at a Reflex save against your class DC.'
 		},
         knife: {
 			label: 'Knife',
@@ -88,7 +92,7 @@
 <br>
 <b>Critical specialization effect:</b>
 <br>
-<textarea readonly rows="6" id="description">{options[StringToOptionsKey(selected)].description}</textarea>
+<textarea readonly rows="4" id="description">{options[StringToOptionsKey(selected)].description}</textarea>
 </div>
 
 

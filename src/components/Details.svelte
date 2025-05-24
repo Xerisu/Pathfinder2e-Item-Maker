@@ -9,16 +9,16 @@
 <SingleDetail name="Damage" value="1d{properties.damageDie} {properties.damageType}"/>
 <SingleDetail name="Bulk" value={properties.bulk.toString()}/>
 <SingleDetail name="Hands" value={properties.hands.toString()}/>
-{#if properties.range != undefined}
+{#if properties.type == "ranged"}
     <SingleDetail name="Range" value={properties.range.toString()}/>
 {/if}
-{#if properties.reload != undefined}
+{#if properties.type == "ranged"}
     <SingleDetail name="Reload" value={properties.reload.toString()}/>
 {/if}
 <SingleDetail name="Type" value={properties.type}/>
 <SingleDetail name="Category" value={properties.category}/>
 <SingleDetail name="Group" value={properties.group}/>
-{#if properties.ammunition != undefined}
+{#if properties.ammunition != undefined && properties.type == "ranged"}
     <SingleDetail name="Ammunition" value={properties.ammunition}/>
 {/if}
 
