@@ -10,7 +10,7 @@
 <SingleDetail name="Bulk" value={properties.bulk.toString()}/>
 <SingleDetail name="Hands" value={properties.hands.toString()}/>
 {#if properties.type == "ranged"}
-    <SingleDetail name="Range" value={properties.range.toString()}/>
+    <SingleDetail name="Range" value={properties.range.toString() + " ft"}/>
 {/if}
 {#if properties.type == "ranged"}
     <SingleDetail name="Reload" value={properties.reload.toString()}/>
@@ -18,7 +18,7 @@
 <SingleDetail name="Type" value={properties.type}/>
 <SingleDetail name="Category" value={properties.category}/>
 <SingleDetail name="Group" value={properties.group}/>
-{#if properties.ammunition != undefined && properties.type == "ranged"}
+{#if properties.ammunition != "" && properties.type == "ranged"}
     <SingleDetail name="Ammunition" value={properties.ammunition}/>
 {/if}
 

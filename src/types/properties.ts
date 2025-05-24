@@ -9,7 +9,7 @@ export default class Properties {
 	type: 'melee' | 'ranged';
 	category: 'simple' | 'martial' | 'advanced';
 	group: string;
-	ammunition: undefined | string; // Może być dowolna
+	ammunition: string; // Może być dowolna
 
 	constructor() {
 		this.priceCp = 0;
@@ -22,6 +22,7 @@ export default class Properties {
 		this.type = 'melee';
 		this.category = 'simple';
 		this.group = 'brawling';
+		this.ammunition = '';
 	}
 
 	getPrice(): string {

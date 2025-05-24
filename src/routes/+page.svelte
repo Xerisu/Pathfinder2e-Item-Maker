@@ -8,6 +8,9 @@
 	import Hands from "../components/Hands.svelte";
 	import type { TransformOptions } from "vite";
 	import Type from "../components/Type.svelte";
+	import Range from "../components/Range.svelte";
+	import Reload from "../components/Reload.svelte";
+	import Ammunition from "../components/Ammunition.svelte";
 	
 	let weaponProficiency: string;
 	let properties = new Properties();
@@ -23,7 +26,9 @@
 		<Hands bind:selected={properties.hands}/>
 		<Type bind:selected={properties.type}/>
 		{#if properties.type == "ranged"}
-			UwU
+			<Range bind:range={properties.range}/>
+			<Reload bind:selected={properties.reload}/>
+			<Ammunition bind:ammunition={properties.ammunition}/>
 		{/if}
 	</div>
 
