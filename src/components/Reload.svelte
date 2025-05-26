@@ -1,25 +1,35 @@
 <script lang="ts">
-    import Radio from './Radio.svelte';
-    export let selected : number;
-    const options = [{
-        value: 0,
-        label: 'Reload 0',
-    }, {
-        value: 1,
-        label: 'Reload 1',
-    }, {
-        value: 2,
-        label: 'Reload 2',
-    }, {
-        value: 3,
-        label: 'Reload 3',
-    }];
+export let reload = 0;
+function validateInput(inputEvent : Event) {
+    const target = inputEvent.target as HTMLInputElement;
+    if(target && !target.validity.valid) {
+        // Todo: zrobić żeby tu była reszta z dzielenia, że "32" zwróci 2 itd
+        if (Number(target.value) > 3)
+            target.value = "3";
+        else
+            target.value = "0";
+    }
+}
 </script>
 
-<Radio {options} legend="Reload" bind:userSelected={selected}/>
-
-
-
+<div>
+<b>Reload</b>
+<br>
+<input type="number" min="0" max="3" on:input={validateInput} bind:value={reload} class="inputInherit customImput">
+</div>
 <style>
-
+    .inputInherit {
+        font-family: inherit;
+        font-size: inherit;
+        text-transform: inherit;
+        color: inherit;
+        background-color: inherit;
+    }
+    .customImput {
+        border: none;
+        outline: 1px solid grey;
+    }
+    .customImput:focus {
+        outline: 1px solid black;
+    }
 </style>

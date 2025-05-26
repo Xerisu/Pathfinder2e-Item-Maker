@@ -3,7 +3,10 @@ export let range = 0;
 function validateInput(inputEvent : Event) {
     const target = inputEvent.target as HTMLInputElement;
     if(target && !target.validity.valid) {
-        target.value = '';
+        if (Number(target.value) > 200)
+            target.value = "200";
+        else
+            target.value = "10";
     }
 }
 </script>
@@ -11,7 +14,7 @@ function validateInput(inputEvent : Event) {
 <div>
 <b>Range</b>
 <br>
-<input type="number" min="0" on:input={validateInput} bind:value={range} class="inputInherit customImput" maxlength="4"> ft
+<input type="number" min="10" max="200" on:input={validateInput} bind:value={range} class="inputInherit customImput"> ft
 </div>
 <style>
     .inputInherit {

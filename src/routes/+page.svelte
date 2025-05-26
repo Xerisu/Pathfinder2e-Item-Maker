@@ -11,6 +11,10 @@
 	import Range from "../components/Range.svelte";
 	import Reload from "../components/Reload.svelte";
 	import Ammunition from "../components/Ammunition.svelte";
+	import Bulk from "../components/Bulk.svelte";
+	import DamageDie from "../components/DamageDie.svelte";
+	import DamageType from "../components/DamageType.svelte";
+	import Rarity from "../components/Rarity.svelte";
 	
 	let weaponProficiency: string;
 	let properties = new Properties();
@@ -19,15 +23,18 @@
 
 <div class="wrapper">
 
-	<div class="choices">	
+	<div class="choices">
 		<Price bind:price={properties.priceCp}/>
 		<WeaponCategory bind:selected={properties.category} />
+		<Bulk bind:selected={properties.bulk}/>
+		<DamageDie bind:selected={properties.damageDie}/>
+		<DamageType bind:selected={properties.damageType}/>
 		<Group bind:selected={properties.group}/>
 		<Hands bind:selected={properties.hands}/>
 		<Type bind:selected={properties.type}/>
 		{#if properties.type == "ranged"}
 			<Range bind:range={properties.range}/>
-			<Reload bind:selected={properties.reload}/>
+			<Reload bind:reload={properties.reload}/>
 			<Ammunition bind:ammunition={properties.ammunition}/>
 		{/if}
 	</div>

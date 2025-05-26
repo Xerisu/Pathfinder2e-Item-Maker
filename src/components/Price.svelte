@@ -11,7 +11,7 @@ function validateInput(inputEvent : Event) {
 <div>
 <b>Price</b>
 <br>
-<input type="number" min="0" on:input={validateInput} bind:value={price} class="inputInherit customImput" maxlength="4"> cp
+<input type="number" min="0" on:input={validateInput} bind:value={price} class="inputInherit customImput"> cp
 </div>
 <style>
     .inputInherit {
