@@ -5,7 +5,9 @@
 </script>
 
 <div class="tags">
+	{#if traits.rarity != "common"}
     <div class={"tag " + traits.rarity}>{traits.rarity}</div>
+	{/if}
     {#each traits.traits as trait}
 		<div class="tag">{trait}</div>
 	{/each}

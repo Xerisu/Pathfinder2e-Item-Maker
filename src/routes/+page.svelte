@@ -18,12 +18,13 @@
 	
 	let weaponProficiency: string;
 	let properties = new Properties();
-	let traits : Traits = {rarity : "rare", traits : ["agile", "finesse"]};
+	let traits : Traits = {rarity : "uncommon", traits : ["agile", "finesse"]};
 </script>
 
 <div class="wrapper">
 
 	<div class="choices">
+		<Rarity bind:selected={traits.rarity}/>	
 		<Price bind:price={properties.priceCp}/>
 		<WeaponCategory bind:selected={properties.category} />
 		<Bulk bind:selected={properties.bulk}/>
