@@ -3,11 +3,16 @@
 
 	export let selected: string | number;
 
-	const options = [
-		{ value: 'Negligible', label: 'Negligible' },
-		{ value: 'L', label: 'Light' },
-		{ value: 'number', label: 'Number' }, 
-	];
+	const options = [{ 
+			value: 'Negligible', 
+			label: 'Negligible' 
+		}, { 
+			value: 'L', 
+			label: 'Light' 
+		}, { 
+			value: 'number', 
+			label: 'Number' 
+		}];
 
 	let selectedOption: string = typeof selected === 'number' ? 'number' : selected;
 	let customNumber: number = typeof selected === 'number' ? selected : 1;
@@ -22,7 +27,7 @@
 		if (value > 10) {
 			value = 10;
 		} 
-		else {
+		else if (value < 1) {
 			value = 1;
 		}
 
@@ -31,10 +36,8 @@
 	}
 </script>
 
-<!-- Radio -->
 <Radio {options} legend="Bulk" bind:userSelected={selectedOption} />
 
-<!-- Pole pojawia się przy 'Number' -->
 {#if selectedOption === 'number'}
 	<label>	
         Enter custom bulk number:
