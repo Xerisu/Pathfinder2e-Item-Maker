@@ -1,18 +1,21 @@
 <script lang="ts">
 	import Radio from './Radio.svelte';
+    import { t } from "../internationalisation/i18n.ts";
 
 	export let selected: string | number;
 
-	const options = [{ 
-			value: 'Negligible', 
-			label: 'Negligible' 
+	const options = (_: any) => {
+		return [{ 
+			value: 'negligible',
+			label: $t('bulk.negligible', {})
 		}, { 
 			value: 'L', 
-			label: 'Light' 
+			label: $t('bulk.light', {})
 		}, { 
 			value: 'number', 
-			label: 'Number' 
-		}];
+			label: $t('bulk.number', {})
+		}]
+	};
 
 	let selectedOption: string = typeof selected === 'number' ? 'number' : selected;
 	let customNumber: number = typeof selected === 'number' ? selected : 1;
@@ -36,11 +39,11 @@
 	}
 </script>
 
-<Radio {options} legend="Bulk" bind:userSelected={selectedOption} />
+<Radio options="{options($t)}" legend="{$t('bulk.legend', {})}" bind:userSelected={selectedOption} />
 
 {#if selectedOption === 'number'}
 	<label>	
-        Enter custom bulk number:
+        {$t('bulk.enterCustom', {})}:
 		<input type="number" min="1" max="10" bind:value={customNumber} on:input={validateInput} class="inputInherit customImput"/> 
     </label>
 {/if}

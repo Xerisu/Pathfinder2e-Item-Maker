@@ -1,17 +1,16 @@
 <script lang="ts">
-export let ammunition = '';
-function validateInput(inputEvent : Event) {
-    const target = inputEvent.target as HTMLInputElement;
-    if(target && !target.validity.valid) {
-        target.value = '';
-    }
-        
-
+    import { t } from "../internationalisation/i18n.ts";
+    export let ammunition = '';
+    function validateInput(inputEvent : Event) {
+        const target = inputEvent.target as HTMLInputElement;
+        if(target && !target.validity.valid) {
+            target.value = '';
+        }
 }
 </script>
 
 <div>
-<b>Ammunition</b>
+<b>{$t('ammunition.legend', {})}</b>
 <br>
 <input type="string" on:input={validateInput} bind:value={ammunition} class="inputInherit customImput" maxlength="20">
 </div>

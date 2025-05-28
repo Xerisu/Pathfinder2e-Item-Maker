@@ -1,14 +1,15 @@
 <script lang="ts">
-	import type Traits from "../types/traits.js";
+	import Traits from "../types/traits.js";
 	export let traits : Traits
+    import { locale } from "../internationalisation/i18n";
 	
 </script>
 
 <div class="tags">
 	{#if traits.rarity != "common"}
-    <div class={"tag " + traits.rarity}>{traits.rarity}</div>
+    <div class={"tag " + traits.rarity}>{traits.getTranslatedRarity($locale)}</div>
 	{/if}
-    {#each traits.traits as trait}
+    {#each traits.getTranslatedTraits($locale) as trait}
 		<div class="tag">{trait}</div>
 	{/each}
     <div style="clear: both;"/>

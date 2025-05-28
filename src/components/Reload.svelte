@@ -1,19 +1,20 @@
 <script lang="ts">
-export let reload = 0;
-function validateInput(inputEvent : Event) {
-    const target = inputEvent.target as HTMLInputElement;
-    if(target && !target.validity.valid) {
-        // Todo: zrobić żeby tu była reszta z dzielenia, że "32" zwróci 2 itd
-        if (Number(target.value) > 3)
-            target.value = "3";
-        else
-            target.value = "0";
-    }
+    import { t } from "../internationalisation/i18n.ts";
+    export let reload = 0;
+    function validateInput(inputEvent : Event) {
+        const target = inputEvent.target as HTMLInputElement;
+        if(target && !target.validity.valid) {
+            // Todo: zrobić żeby tu była reszta z dzielenia, że "32" zwróci 2 itd
+            if (Number(target.value) > 3)
+                target.value = "3";
+            else
+                target.value = "0";
+        }
 }
 </script>
 
 <div>
-<b>Reload</b>
+<b>{$t("reload.legend", {})}</b>
 <br>
 <input type="number" min="0" max="3" on:input={validateInput} bind:value={reload} class="inputInherit customImput">
 </div>

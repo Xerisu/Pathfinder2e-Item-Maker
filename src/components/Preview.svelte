@@ -1,9 +1,11 @@
 <script lang="ts">
     import type Properties from "../types/properties.ts";
 	import type { TransformOptions } from "vite";
-    import type Traits from "../types/traits.d.ts";
+    import Traits from "../types/traits.ts";
     import Details from "./Details.svelte";
     import Tags from "./Tags.svelte";
+    import { t } from "../internationalisation/i18n.ts";
+
     export let weaponName: string = "";
     export let weaponDescription: string = ""
     export let traits : Traits;
@@ -12,15 +14,15 @@
 
 <div class="preview">
 	<div class="itemHeader">
-		<div style="float: left"><input type="text" id="Name" name="Name" value={weaponName} class="inputInherit customImput" placeholder="Weapon Name"></div>
-        <div style="float: right">Weapon 0</div>
+		<div style="float: left"><input type="text" id="Name" name="Name" value={weaponName} class="inputInherit customImput" placeholder={$t("preview.weaponName.placeholder", {})}></div>
+        <div style="float: right">{$t("preview.weapon", {})} 0</div>
         <div style="clear: both;"/>
 	</div>
     <hr>
     <Tags traits = {traits}/>
     <Details properties = {properties}/>
 	<hr>
-    <textarea id="Description" name="Name" rows="10" style="resize: vertical;" class="inputInherit customImput description" placeholder="Type your weapon description...">{weaponDescription}</textarea>
+    <textarea id="Description" name="Name" rows="10" style="resize: vertical;" class="inputInherit customImput description" placeholder="{$t("preview.weaponDescription.placeholder", {})}...">{weaponDescription}</textarea>
 </div>
 
 <style>

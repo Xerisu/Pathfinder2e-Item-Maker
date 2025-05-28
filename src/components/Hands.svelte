@@ -1,9 +1,11 @@
 <script lang="ts">
+    import { t } from "../internationalisation/i18n.ts";
     import Radio from './Radio.svelte';
     export let selected : string;
-    const options = [{
+    const options = (_: any) => {
+		return [{
         value: 'unarmed',
-        label: 'Unarmed',
+        label: $t("hands.unarmed", {}),
     }, {
         value: '0',
         label: '0',
@@ -17,9 +19,10 @@
         value: '2',
         label: '2',
     }];
+};
 </script>
 
-<Radio {options} legend="Hands" bind:userSelected={selected}/>
+<Radio options={options($t)} legend="{$t("hands.legend", {})}" bind:userSelected={selected}/>
 
 
 

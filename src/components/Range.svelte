@@ -1,20 +1,21 @@
 <script lang="ts">
-export let range = 0;
-function validateInput(inputEvent : Event) {
-    const target = inputEvent.target as HTMLInputElement;
-    if(target && !target.validity.valid) {
-        if (Number(target.value) > 200)
-            target.value = "200";
-        else
-            target.value = "10";
+    import { t } from "../internationalisation/i18n.ts";
+    export let range = 0;
+    function validateInput(inputEvent : Event) {
+        const target = inputEvent.target as HTMLInputElement;
+        if(target && !target.validity.valid) {
+            if (Number(target.value) > 200)
+                target.value = "200";
+            else
+                target.value = "10";
+        }
     }
-}
 </script>
 
 <div>
-<b>Range</b>
+<b>{$t("range.legend", {})}</b>
 <br>
-<input type="number" min="10" max="200" on:input={validateInput} bind:value={range} class="inputInherit customImput"> ft
+<input type="number" min="10" max="200" on:input={validateInput} bind:value={range} class="inputInherit customImput"> {$t("range.ft", {})}
 </div>
 <style>
     .inputInherit {
